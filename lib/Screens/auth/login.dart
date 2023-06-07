@@ -1,6 +1,6 @@
-import 'package:ect/Constants/button.dart';
-import 'package:ect/Constants/colors.dart';
-import 'package:ect/Constants/textfield.dart';
+import 'package:ect/constants/button.dart';
+import 'package:ect/constants/colors.dart';
+import 'package:ect/constants/textfield.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
