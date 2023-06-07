@@ -1,6 +1,6 @@
 import 'package:ect/Constants/button.dart';
 import 'package:ect/Constants/colors.dart';
-import 'package:ect/Screens/registration/login.dart';
+import 'package:ect/Screens/auth/login.dart';
 import 'package:flutter/material.dart';
 
 import 'WhoYouAre.dart';
@@ -10,15 +10,17 @@ class Welcomce extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             SizedBox(
-              height: 100,
+              height: size.height * 0.1,
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 "Welcome!",
@@ -27,13 +29,13 @@ class Welcomce extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: size.height * 0.05,
             ),
             Image.asset("assets/Graphics/Welcome.png"),
             SizedBox(
-              height: 30,
+              height: size.height * 0.05,
             ),
-            Text(
+            const Text(
               "Make Your Day",
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -41,13 +43,15 @@ class Welcomce extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Explore "),
+                const Text("Explore "),
                 Text("Tailor and Purchase online",
                     style:
                         TextStyle(color: orange, fontWeight: FontWeight.bold)),
               ],
             ),
-            SizedBox(height: 60),
+            SizedBox(
+              height: size.height * 0.05,
+            ),
             MyCustomButton(
               fontColor: white,
               text: 'Sign Up',
@@ -60,7 +64,7 @@ class Welcomce extends StatelessWidget {
               },
             ),
             SizedBox(
-              height: 15,
+             height: size.height * 0.02,
             ),
             MyCustomButton(
                 text: 'Login',
@@ -69,7 +73,7 @@ class Welcomce extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const login()),
+                    MaterialPageRoute(builder: (context) => const Login()),
                   );
                 })
           ],
