@@ -1,9 +1,9 @@
 import 'package:ect/Constants/button.dart';
 import 'package:ect/Constants/colors.dart';
+import 'package:ect/Screens/registration/login.dart';
 import 'package:flutter/material.dart';
 
 import 'WhoYouAre.dart';
-
 
 class Welcomce extends StatelessWidget {
   const Welcomce({super.key});
@@ -49,18 +49,29 @@ class Welcomce extends StatelessWidget {
             ),
             SizedBox(height: 60),
             MyCustomButton(
+              fontColor: white,
               text: 'Sign Up',
+              color: purple,
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SignUp()),
+                  MaterialPageRoute(builder: (context) => const WhoYouAre()),
                 );
               },
             ),
             SizedBox(
               height: 15,
             ),
-            MyCustomButton(text: 'Login', onPressed: () {})
+            MyCustomButton(
+                text: 'Login',
+                color: purple,
+                fontColor: white,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const login()),
+                  );
+                })
           ],
         ),
       ),
