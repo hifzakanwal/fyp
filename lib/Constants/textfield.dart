@@ -1,17 +1,17 @@
-import 'package:ect/Constants/colors.dart';
+import 'package:ect/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatefulWidget {
   final String labelText;
 
-  const MyTextField({required this.labelText});
+  const MyTextField({super.key, required this.labelText});
 
   @override
   _MyTextFieldState createState() => _MyTextFieldState();
 }
 
 class _MyTextFieldState extends State<MyTextField> {
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
   bool _isFocused = false;
 
   @override
@@ -22,7 +22,7 @@ class _MyTextFieldState extends State<MyTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 44,
       child: Stack(
         alignment: Alignment.centerLeft,
@@ -32,11 +32,11 @@ class _MyTextFieldState extends State<MyTextField> {
             child: AnimatedOpacity(
               opacity:
                   _isFocused || _textEditingController.text.isNotEmpty ? 0 : 1,
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               curve: Curves.easeInOut,
               child: Text(
                 widget.labelText,
-                style: TextStyle(color: purple),
+                style: const TextStyle(color: purple),
               ),
             ),
           ),
@@ -44,13 +44,13 @@ class _MyTextFieldState extends State<MyTextField> {
             controller: _textEditingController,
             decoration: InputDecoration(
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
                 borderRadius: BorderRadius.circular(10),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
                 borderRadius: BorderRadius.circular(10),
               ),
               filled: true,

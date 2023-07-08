@@ -6,7 +6,7 @@ class MyCustomButton extends StatelessWidget {
   final Color color;
   final Color fontColor; // Add the font color parameter
 
-  const MyCustomButton({
+  const MyCustomButton({super.key, 
     required this.text,
     required this.onPressed,
     required this.color,
@@ -17,17 +17,17 @@ class MyCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-            fontSize: 16, color: fontColor), // Use the provided font color
-      ),
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
         backgroundColor: color,
-        minimumSize: Size(306, 50),
+        minimumSize: const Size(306, 50),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+            fontSize: 16, color: fontColor), // Use the provided font color
       ),
     );
   }
