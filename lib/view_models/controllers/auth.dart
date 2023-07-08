@@ -13,10 +13,10 @@ class Auth {
       if (user != null) {
         return "success";
       } else {
-        throw Exception('Login failed. Please try again.');
+        return "Some error occured";
       }
     } catch (e) {
-      throw Exception('Login failed: $e');
+      return e.toString().toUpperCase();
     }
   }
 
@@ -66,8 +66,14 @@ class Auth {
     }
   }
 
-  getUserData() {
-    User? user = FirebaseAuth.instance.currentUser;
-    FirebaseFirestore _firestore = FirebaseFirestore.instance;
-    return _firestore.collection('Users').doc(user?.uid).get();}
+    Future<UserModel> getUserData(String uid) async {
+      UserModel? userModel;
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      final DocumentSnapshot docSnap =
+          await firestore.collection('Users').doc(uid).get();
+      if (docSnap.data() != null) {
+        userModel = UserModel.fromMap(docSnap.data() as Map<String, dynamic>);
+      }
+      return userModel!;
+    }
 }

@@ -261,6 +261,9 @@ class _SignUpState extends State<SignUp> {
         );
       }
     } on Exception catch (e) {
+      setState(() {
+        isLoading = false;
+      });
       print(e);
     }
     return UserModel();
