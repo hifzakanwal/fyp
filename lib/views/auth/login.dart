@@ -1,5 +1,7 @@
 import 'package:ect/constants/button.dart';
 import 'package:ect/constants/colors.dart';
+import 'package:ect/models/user.dart';
+import 'package:ect/view_models/controllers/auth.dart';
 import 'package:ect/views/auth/who_are_you.dart';
 import 'package:ect/widgets/snackbar.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
+  final email = TextEditingController();
+  final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +86,7 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: TextFormField(
+                            controller: email,
                             decoration: const InputDecoration(
                               hintText: 'Email',
                               border: InputBorder.none,
@@ -109,6 +114,7 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: TextFormField(
+                            controller: password,
                             obscureText: true,
                             decoration: const InputDecoration(
                               hintText: 'Password',
@@ -137,7 +143,7 @@ class _LoginState extends State<Login> {
                             fontColor: white,
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                // _login();
+                                _login();
                               }
                             }),
                         Row(
@@ -172,5 +178,22 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  Future<void> _login() async {
+    try {
+      Future<String> res =
+          Auth().login(email.text.trim(), password.text.trim());
+      if (res == "success") {
+        UserModel userModelData = await Auth().getUserData();
+        if (userModelData.userType == "seller") {
+          //navigato to seller screen
+        } else if (userModelData.userType == "customer") {
+          //navigato to customer screen
+        }
+      }
+    } catch (e) {
+      showSnackBar(context, "something went wrong");
+    }
   }
 }

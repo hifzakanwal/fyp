@@ -25,14 +25,23 @@ class UserModel {
     userType = map['userType'];
     createdOn = map['createdOn'];
   }
-  Map<String, dynamic> toMap() {
-    return {
-      'uid': uid,
-      'username': username,
-      'email': email,
-      'address': address,
-      'userType': userType,
-      'createdOn': createdOn,
-    };
+  Map<String, dynamic> toJson() => {
+        'uid': uid,
+        'username': username,
+        'email': email,
+        'address': address,
+        'userType': userType,
+        'createdOn': createdOn,
+      };
+  static UserModel fromSnap(DocumentSnapshot snap) {
+    var snapshot = snap.data() as Map<String, dynamic>;
+    return UserModel(
+      uid: snapshot['uid'],
+      username: snapshot['username'],
+      email: snapshot['email'],
+      address: snapshot['address'],
+      userType: snapshot['userType'],
+      createdOn: snapshot['createdOn'],
+    );
   }
 }

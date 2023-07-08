@@ -1,21 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ect/view_models/providers/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../models/user.dart';
 
 class Auth {
-  Future<FutureProvider<UserModel>> login(String email, String password) async {
+  Future<String> login(String email, String password) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       User? user = userCredential.user;
-      String? uid = user?.uid;
 
       if (user != null) {
-        FutureProvider<UserModel> userModel = userProvider(uid!);
-        return userModel;
+        return "success";
       } else {
         throw Exception('Login failed. Please try again.');
       }
@@ -57,7 +53,7 @@ class Auth {
         );
         print("USER CREATED");
         await _firestore.collection('Users').doc(uid).set(
-              userModel.toMap(),
+              userModel.toJson(),
             );
         print("USER ADDED TO FIRESTORE");
         return userModel;
@@ -65,7 +61,13 @@ class Auth {
         throw Exception('Registration failed. Please try again.');
       }
     } catch (e) {
+      print(e.toString().toUpperCase());
       throw Exception('Registration failed: $e');
     }
   }
+
+  getUserData() {
+    User? user = FirebaseAuth.instance.currentUser;
+    FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    return _firestore.collection('Users').doc(user?.uid).get();}
 }
