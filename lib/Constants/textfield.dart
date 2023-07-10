@@ -36,7 +36,7 @@ class _MyTextFieldState extends State<MyTextField> {
               curve: Curves.easeInOut,
               child: Text(
                 widget.labelText,
-                style: const TextStyle(color: purple),
+                style: const TextStyle(color: customPurple),
               ),
             ),
           ),

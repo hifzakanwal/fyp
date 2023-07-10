@@ -1,5 +1,5 @@
+import 'package:ect/Constants/colors.dart';
 import 'package:ect/constants/button.dart';
-import 'package:ect/constants/colors.dart';
 import 'package:ect/models/user.dart';
 import 'package:ect/views/auth/welcome.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
               SizedBox(height: size.height * 0.07),
               Container(
                 decoration: const BoxDecoration(
-                  color: purple,
+                  color: customPurple,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -191,12 +191,12 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(height: size.height * 0.02),
                         isLoading
                             ? const CircularProgressIndicator(
-                                color: pink,
+                                color: red,
                               )
                             : MyCustomButton(
                                 text: 'Sign Up',
-                                color: pink,
-                                fontColor: white,
+                                color: red,
+                                fontColor: customWhite,
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
                                     register();
@@ -215,7 +215,7 @@ class _SignUpState extends State<SignUp> {
                               },
                               child: const Text(
                                 'Log in',
-                                style: TextStyle(color: orange),
+                                style: TextStyle(color: customOrange),
                               ),
                             ),
                           ],
@@ -283,12 +283,12 @@ class BottomText extends StatelessWidget {
           children: [
             TextSpan(
               text: 'Term of services',
-              style: TextStyle(color: orange),
+              style: TextStyle(color: customOrange),
             ),
             TextSpan(text: ' and '),
             TextSpan(
               text: 'Privacy policies',
-              style: TextStyle(color: orange),
+              style: TextStyle(color: customOrange),
             ),
           ],
         ),

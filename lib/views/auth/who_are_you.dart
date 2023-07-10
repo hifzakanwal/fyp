@@ -1,5 +1,5 @@
+import 'package:ect/Constants/colors.dart';
 import 'package:ect/constants/button.dart';
-import 'package:ect/constants/colors.dart';
 import 'package:ect/views/auth/signup.dart';
 import 'package:flutter/material.dart';
 
@@ -36,8 +36,8 @@ class WhoYouAre extends StatelessWidget {
               ),
               MyCustomButton(
                 text: 'Join as a Customer',
-                color: purple,
-                fontColor: white,
+                color: customPurple,
+                fontColor: customWhite,
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -54,8 +54,8 @@ class WhoYouAre extends StatelessWidget {
               ),
               MyCustomButton(
                 text: 'Join as a Service Seller',
-                color: purple,
-                fontColor: white,
+                color: customPurple,
+                fontColor: customWhite,
                 onPressed: () {
                   Navigator.push(
                     context,

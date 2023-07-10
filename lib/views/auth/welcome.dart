@@ -1,5 +1,5 @@
+import 'package:ect/Constants/colors.dart';
 import 'package:ect/constants/button.dart';
-import 'package:ect/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'login.dart';
@@ -46,16 +46,16 @@ class Welcome extends StatelessWidget {
                 Text("Explore "),
                 Text("Tailor and Purchase online",
                     style:
-                        TextStyle(color: orange, fontWeight: FontWeight.bold)),
+                        TextStyle(color: customOrange, fontWeight: FontWeight.bold)),
               ],
             ),
             SizedBox(
               height: size.height * 0.05,
             ),
             MyCustomButton(
-              fontColor: white,
+              fontColor: customWhite,
               text: 'Sign Up',
-              color: purple,
+              color: customPurple,
               onPressed: () {
                 Navigator.push(
                   context,
@@ -68,8 +68,8 @@ class Welcome extends StatelessWidget {
             ),
             MyCustomButton(
               text: 'Login',
-              color: purple,
-              fontColor: white,
+              color: customPurple,
+              fontColor: customWhite,
               onPressed: () {
                 Navigator.push(
                   context,

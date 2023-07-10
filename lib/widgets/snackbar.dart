@@ -1,4 +1,4 @@
-import 'package:ect/constants/colors.dart';
+import 'package:ect/Constants/colors.dart';
 import 'package:flutter/material.dart';
 
 showSnackBar(
@@ -7,10 +7,10 @@ showSnackBar(
 ) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: purple,
+      backgroundColor: customPurple,
       content: Text(
         content,
-        style: const TextStyle(color: white, fontWeight: FontWeight.bold),
+        style: const TextStyle(color: customWhite, fontWeight: FontWeight.bold),
       ),
       duration: const Duration(seconds: 2),
     ),

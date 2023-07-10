@@ -1,10 +1,10 @@
+import 'package:ect/Constants/colors.dart';
 import 'package:ect/constants/button.dart';
-import 'package:ect/constants/colors.dart';
 import 'package:ect/models/user.dart';
 import 'package:ect/view_models/controllers/auth.dart';
 import 'package:ect/views/auth/who_are_you.dart';
-import 'package:ect/views/customer_home/nav_home/home.dart';
 import 'package:ect/views/service_seller_home/nav_home/home.dart';
+import 'package:ect/views/customer_home/nav_home/bottom_nav_bar.dart';
 import 'package:ect/widgets/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +67,7 @@ class _LoginState extends State<Login> {
               Container(
                 height: size.height * 0.35,
                 decoration: const BoxDecoration(
-                  color: purple,
+                  color: customPurple,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -149,7 +149,7 @@ class _LoginState extends State<Login> {
                                 //         builder: (context) =>
                                 //             const ForgotPassword()));
                               },
-                              child: Text(
+                              child: const Text(
                                 "Forgot Password?",
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -158,8 +158,8 @@ class _LoginState extends State<Login> {
                         ),
                         MyCustomButton(
                             text: 'Login',
-                            color: pink,
-                            fontColor: white,
+                            color: red,
+                            fontColor: customWhite,
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 _login();
@@ -180,9 +180,9 @@ class _LoginState extends State<Login> {
                                         builder: (context) =>
                                             const WhoYouAre()));
                               },
-                              child: Text(
+                              child: const Text(
                                 'Sign Up',
-                                style: TextStyle(color: orange),
+                                style: TextStyle(color: customOrange),
                               ),
                             ),
                           ],
@@ -216,12 +216,12 @@ class _LoginState extends State<Login> {
           print(userModelData.userType.toString().toUpperCase());
           //navigato to seller screen
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => SellerHome()));
+              context, MaterialPageRoute(builder: (context) => const SellerHome()));
         } else if (userModelData.userType == "customer") {
           print(userModelData.userType.toString().toUpperCase());
           //navigato to customer screen
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => CustomerHome()));
+              context, MaterialPageRoute(builder: (context) =>  BottomNavBar()));
         }
       } else {
         showSnackBar(context, "something went wrong");
