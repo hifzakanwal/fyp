@@ -1,6 +1,11 @@
 import "package:ect/Constants/colors.dart";
+import "package:ect/views/customer_home/homepage_categories/fabric_collection/fabric_collection_screen.dart";
+import 'package:ect/views/customer_home/homepage_categories/measurements/measurements.dart';
+import 'package:ect/views/customer_home/homepage_categories/tailors/tailors_screen.dart';
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
+
+import "../homepage_categories/clothes/clothes_screen.dart";
 
 class CustomerHome extends StatelessWidget {
   const CustomerHome({super.key});
@@ -39,169 +44,211 @@ class CustomerHome extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(30.0),
-                              child: Container(
-                                width: size.width * 0.27,
-                                height: size.height * 0.1,
-                                decoration: BoxDecoration(
-                                  color: customWhite,
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                        "assets/Graphics/person_icon.png"),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MeasurementScreen(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 30.0, left: 20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Material(
+                                elevation: 4,
+                                borderRadius: BorderRadius.circular(30.0),
+                                child: Container(
+                                  width: size.width * 0.27,
+                                  height: size.height * 0.1,
+                                  decoration: BoxDecoration(
+                                    color: customWhite,
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                          "assets/Graphics/person_icon.png"),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                top: 10.0,
-                              ),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text(
-                                  "Measurements",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: customPurple,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
+                              const Padding(
+                                padding: EdgeInsets.only(
+                                  top: 10.0,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    "Measurements",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: customPurple,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(30.0),
-                              child: Container(
-                                width: size.width * 0.27,
-                                height: size.height * 0.1,
-                                decoration: BoxDecoration(
-                                  color: customWhite,
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                        "assets/Graphics/tailor_scissors.png"),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TailorScreen(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 30.0, left: 20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Material(
+                                elevation: 4,
+                                borderRadius: BorderRadius.circular(30.0),
+                                child: Container(
+                                  width: size.width * 0.27,
+                                  height: size.height * 0.1,
+                                  decoration: BoxDecoration(
+                                    color: customWhite,
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                          "assets/Graphics/tailor_scissors.png"),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                top: 10.0,
-                              ),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text(
-                                  "Tailors",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: customPurple,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
+                              const Padding(
+                                padding: EdgeInsets.only(
+                                  top: 10.0,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    "Tailors",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: customPurple,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(30.0),
-                              child: Container(
-                                width: size.width * 0.27,
-                                height: size.height * 0.1,
-                                decoration: BoxDecoration(
-                                  color: customWhite,
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                        "assets/Graphics/clothes.png"),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ClothesScreen(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 30.0, left: 20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Material(
+                                elevation: 4,
+                                borderRadius: BorderRadius.circular(30.0),
+                                child: Container(
+                                  width: size.width * 0.27,
+                                  height: size.height * 0.1,
+                                  decoration: BoxDecoration(
+                                    color: customWhite,
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                          "assets/Graphics/clothes.png"),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                top: 10.0,
-                              ),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text(
-                                  "Clothes",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: customPurple,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
+                              const Padding(
+                                padding: EdgeInsets.only(
+                                  top: 10.0,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    "Clothes",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: customPurple,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0, left: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(30.0),
-                              child: Container(
-                                width: size.width * 0.27,
-                                height: size.height * 0.1,
-                                decoration: BoxDecoration(
-                                  color: customWhite,
-                                  borderRadius: BorderRadius.circular(30.0),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const FabricCollectionScreen(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 30.0, left: 20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Material(
+                                elevation: 4,
+                                borderRadius: BorderRadius.circular(30.0),
+                                child: Container(
+                                  width: size.width * 0.27,
+                                  height: size.height * 0.1,
+                                  decoration: BoxDecoration(
+                                    color: customWhite,
+                                    borderRadius: BorderRadius.circular(30.0),
+                                  ),
+                                  child: Center(
+                                      child: SvgPicture.asset(
+                                    'assets/Graphics/fabrics.svg',
+                                    width: 45,
+                                    height: 45.60810852050781,
+                                  )),
                                 ),
-                                child: Center(
-                                  child: SvgPicture.asset(
-                                    "assets/Graphics/fabrics.svg",
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(
+                                  top: 10.0,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    "Fabrics",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: customPurple,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                top: 10.0,
-                              ),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text(
-                                  "Fabrics",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: customPurple,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -231,17 +278,17 @@ class CustomerHome extends StatelessWidget {
                               children: [
                                 RichText(
                                   textAlign: TextAlign.center,
-                                  text: const TextSpan(
+                                  text: TextSpan(
                                     children: [
                                       TextSpan(
                                         text: 'Hire Your ',
                                         style: TextStyle(
                                           fontSize: 25,
                                           fontWeight: FontWeight.w800,
-                                          color: Colors.black,
+                                          color: Colors.black.withOpacity(0.5),
                                         ),
                                       ),
-                                      TextSpan(
+                                      const TextSpan(
                                         text: '\nTailor',
                                         style: TextStyle(
                                           fontSize: 25,
@@ -252,13 +299,14 @@ class CustomerHome extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 10.0),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10.0),
                                   child: Text(
                                     "Find Tailor that Near to you",
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
+                                      color: Colors.black.withOpacity(0.5),
                                     ),
                                   ),
                                 ),
@@ -275,7 +323,9 @@ class CustomerHome extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 10.0, left: 20.0, right: 20.0),
+                        top: 10.0,
+                        left: 20.0,
+                      ),
                       child: Container(
                         height: size.height * 0.2,
                         width: size.width * 0.85,
@@ -332,7 +382,8 @@ class CustomerHome extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 10.0, left: 20.0 , right: 20.0),
+                      padding: const EdgeInsets.only(
+                          top: 10.0, left: 20.0, right: 20.0),
                       child: Container(
                         height: size.height * 0.2,
                         width: size.width * 0.85,
