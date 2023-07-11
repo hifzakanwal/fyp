@@ -1,8 +1,12 @@
 import 'package:ect/Constants/colors.dart';
+import 'package:ect/views/customer_home/homepage_categories/measurements/measurements.dart';
+import 'package:ect/views/customer_home/nav_home/customer_profile/account_info.dart';
+import 'package:ect/views/customer_home/nav_home/customer_profile/address_screen.dart';
+import 'package:ect/views/customer_home/nav_home/customer_profile/customer_orders.dart';
 import 'package:flutter/material.dart';
 
 class CustomerProfile extends StatefulWidget {
-  const CustomerProfile({super.key});
+  const CustomerProfile({Key? key}) : super(key: key);
 
   @override
   State<CustomerProfile> createState() => _CustomerProfileState();
@@ -11,6 +15,7 @@ class CustomerProfile extends StatefulWidget {
 class _CustomerProfileState extends State<CustomerProfile> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -49,237 +54,343 @@ class _CustomerProfileState extends State<CustomerProfile> {
             ),
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  leading: const Icon(
-                    Icons.person,
-                    color: darkPink,
-                  ),
-                  tileColor: Colors.grey.withOpacity(0.3),
-                  title: const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Account Information",
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w800,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: size.height * 0.13,
+                  width: double.infinity,
+                  child: Card(
+                    color: cardColor,
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: Icon(
+                            Icons.person,
+                            color: darkPink,
+                            size: 30,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "Manage your account",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 14.0,
+                        const SizedBox(
+                          width: 10.0,
                         ),
-                      ),
-                    ],
-                  ),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_forward,
-                      color: darkPink,
+                        const Flexible(
+                          fit: FlexFit.loose,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Account Information",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                "Manage your account",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AccountInfo(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward,
+                            color: darkPink,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  leading: const Icon(
-                    Icons.man,
-                    size: 30,
-                    color: darkPink,
-                  ),
-                  tileColor: Colors.grey.withOpacity(0.3),
-                  title: const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Measurements",
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w800,
+                SizedBox(
+                  height: size.height * 0.13,
+                  width: double.infinity,
+                  child: Card(
+                    color: cardColor,
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: Icon(
+                            Icons.man,
+                            color: darkPink,
+                            size: 30,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "Take your automated measurement or insert manually",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 14.0,
+                        const SizedBox(
+                          width: 25.0,
                         ),
-                      ),
-                    ],
-                  ),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_forward,
-                      color: darkPink,
+                        const Flexible(
+                          fit: FlexFit.loose,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Measurements",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                "Take your automated measurement or insert manually",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MeasurementScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward,
+                            color: darkPink,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  leading: const Icon(
-                    Icons.library_books,
-                    color: darkPink,
-                  ),
-                  tileColor: Colors.grey.withOpacity(0.3),
-                  title: const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Orders",
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w800,
+                SizedBox(
+                  height: size.height * 0.13,
+                  width: double.infinity,
+                  child: Card(
+                    color: cardColor,
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: Icon(
+                            Icons.task,
+                            color: darkPink,
+                            size: 30,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "See your order's details",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 14.0,
+                        const SizedBox(
+                          width: 5.0,
                         ),
-                      ),
-                    ],
-                  ),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_forward,
-                      color: darkPink,
+                        const Flexible(
+                          fit: FlexFit.loose,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Orders",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                "See your order's details",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 25.0,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CustomerOrderScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward,
+                            color: darkPink,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  leading: const Icon(
-                    Icons.location_on,
-                    color: darkPink,
-                  ),
-                  tileColor: Colors.grey.withOpacity(0.3),
-                  title: const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Address",
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w800,
+                SizedBox(
+                  height: size.height * 0.13,
+                  width: double.infinity,
+                  child: Card(
+                    color: cardColor,
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: Icon(
+                            Icons.location_pin,
+                            color: darkPink,
+                            size: 30,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "Set your location, to see near tailors",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 14.0,
+                        const SizedBox(
+                          width: 25.0,
                         ),
-                      ),
-                    ],
-                  ),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_forward,
-                      color: darkPink,
+                        const Flexible(
+                          fit: FlexFit.loose,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Address",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                "Set your location, to see near tailors",
+                                softWrap: true,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AddressScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward,
+                            color: darkPink,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  leading: const Icon(
-                    Icons.help_rounded,
-                    color: darkPink,
-                  ),
-                  tileColor: Colors.grey.withOpacity(0.3),
-                  title: const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Account Information",
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w800,
+                SizedBox(
+                  height: size.height * 0.13,
+                  width: double.infinity,
+                  child: Card(
+                    color: cardColor,
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: Icon(
+                            Icons.help,
+                            color: darkPink,
+                            size: 30,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "Manage your account",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: customBlack,
-                          fontSize: 14.0,
+                        const Flexible(
+                          fit: FlexFit.loose,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Help Center",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                "See FAQ and contact support",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_forward,
-                      color: darkPink,
+                        IconButton(
+                          onPressed: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const AIMeasurement(),
+                            //   ),
+                            // );
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward,
+                            color: darkPink,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 100.0,
-              ),
-              InkWell(
-                onTap: (){},
-                child: const Text(
-                  "Logout",
-                  style: TextStyle(
+                SizedBox(
+                  height: size.height * 0.1,
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: const Text(
+                    "Logout",
+                    style: TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.w600,
-                      color: customOrange),
+                      color: customOrange,
+                    ),
+                  ),
                 ),
-              ),
-              const Divider(
-                height: 2,
-                thickness: 1,
-                endIndent: 100,
-                indent: 100,
-                color: customBlack,
-              )
-            ],
+                const Divider(
+                  height: 2,
+                  thickness: 1,
+                  endIndent: 100,
+                  indent: 100,
+                  color: customBlack,
+                ),
+                const SizedBox(
+                  height: 30.0,
+                ),
+              ],
+            ),
           ),
         ),
       ),

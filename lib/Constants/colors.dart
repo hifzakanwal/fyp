@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color customPurple = Color(0xFF6B206A);
 const Color darkPink = Color(0xffC75080);
+const Color iconColor = Color(0xffCE3A48);
 const Color customOrange = Color(0xffF59159);
 const Color yellow = Color(0xffFFEA66);
 const Color starColor = Color(0xffFFDE0E);

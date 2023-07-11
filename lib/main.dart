@@ -1,7 +1,6 @@
 import 'package:ect/Constants/colors.dart';
 import 'package:ect/models/user.dart';
 import 'package:ect/view_models/controllers/auth.dart';
-import 'package:ect/views/customer_home/homepage_categories/tailors/tailor_details.dart';
 import 'package:ect/views/customer_home/nav_home/bottom_nav_bar.dart';
 import 'package:ect/views/service_seller_home/nav_home/seller_home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
