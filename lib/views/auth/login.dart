@@ -3,7 +3,7 @@ import 'package:ect/constants/button.dart';
 import 'package:ect/models/user.dart';
 import 'package:ect/view_models/controllers/auth.dart';
 import 'package:ect/views/auth/who_are_you.dart';
-import 'package:ect/views/service_seller_home/nav_home/home.dart';
+import 'package:ect/views/service_seller_home/nav_home/seller_home.dart';
 import 'package:ect/views/customer_home/nav_home/bottom_nav_bar.dart';
 import 'package:ect/widgets/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -221,7 +221,7 @@ class _LoginState extends State<Login> {
           print(userModelData.userType.toString().toUpperCase());
           //navigato to customer screen
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) =>  BottomNavBar()));
+              context, MaterialPageRoute(builder: (context) =>  CustomerBottomNavBar()));
         }
       } else {
         showSnackBar(context, "something went wrong");

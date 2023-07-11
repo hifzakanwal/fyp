@@ -1,19 +1,19 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:ect/Constants/colors.dart';
-import 'package:ect/views/customer_home/nav_home/cutomer_profile.dart';
+import 'package:ect/views/customer_home/nav_home/customer_profile/cutomer_profile.dart';
 import 'package:ect/views/customer_home/nav_home/favorites.dart';
-import 'package:ect/views/customer_home/nav_home/home.dart';
+import 'package:ect/views/customer_home/nav_home/customer_home.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+class CustomerBottomNavBar extends StatefulWidget {
+  const CustomerBottomNavBar({super.key});
 
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  _CustomerBottomNavBarState createState() => _CustomerBottomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
   int _selectedIndex = 2;
 
   static final List<Widget> _widgetOptions = <Widget>[

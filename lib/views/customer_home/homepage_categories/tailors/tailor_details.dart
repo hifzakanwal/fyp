@@ -11,6 +11,10 @@ class TailorDetails extends StatefulWidget {
 }
 
 class _TailorDetailsState extends State<TailorDetails> {
+  int feedbackCardCount = 2; // Initial number of feedback cards to display
+  int maxFeedbackCardCount = 4; // Maximum number of feedback cards
+  bool showAllFeedbackCards =
+      false; // Flag to determine if all feedback cards should be shown
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -38,7 +42,7 @@ class _TailorDetailsState extends State<TailorDetails> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 30.0, left: 30.0 , right: 20.0),
+          padding: const EdgeInsets.only(top: 30.0, left: 30.0, right: 20.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -132,8 +136,7 @@ class _TailorDetailsState extends State<TailorDetails> {
               ElevatedButton(
                 onPressed: () {},
                 style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(red)
-                ),
+                    backgroundColor: MaterialStatePropertyAll(red)),
                 child: const Text(
                   "Place Order",
                   style: TextStyle(
@@ -465,11 +468,48 @@ class _TailorDetailsState extends State<TailorDetails> {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 4, // Number of feedback cards
+                  itemCount: showAllFeedbackCards
+                      ? maxFeedbackCardCount // Show all feedback cards
+                      : feedbackCardCount, // Show limited feedback cards
                   itemBuilder: (BuildContext context, int index) {
                     return const FeedbackCard();
                   },
                 ),
+                if (feedbackCardCount < maxFeedbackCardCount &&
+                    !showAllFeedbackCards)
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        showAllFeedbackCards =
+                            true; // Show all feedback cards when "Show More" button is clicked
+                      });
+                    },
+                    child: const Text(
+                      "Show More",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: customPurple,
+                      ),
+                    ),
+                  ),
+                if (showAllFeedbackCards)
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        showAllFeedbackCards =
+                            false; // Show limited feedback cards when "Show Less" button is clicked
+                      });
+                    },
+                    child: const Text(
+                      "Show Less",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: customPurple,
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),

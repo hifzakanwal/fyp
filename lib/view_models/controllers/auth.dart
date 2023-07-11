@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../models/user.dart';
 
 class Auth {
+  static Auth instance = Auth();
   Future<String> login(String email, String password) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
