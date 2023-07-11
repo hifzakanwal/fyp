@@ -37,7 +37,7 @@ class _TailorScreenState extends State<TailorScreen> {
         itemCount: 4, // Number of cards
         itemBuilder: (BuildContext context, int index) {
           final color = predefinedColors[index % predefinedColors.length];
-          return CustomCard(cardColor: color);
+          return TailorCard(cardColor: color);
         },
       ),
     );

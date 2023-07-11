@@ -49,7 +49,7 @@ class _MeasurementScreenState extends State<MeasurementScreen> {
                   height: size.height * 0.13,
                   width: double.infinity,
                   child: Card(
-                    color: Colors.white.withOpacity(0.7),
+                    color: cardColor,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -119,7 +119,7 @@ class _MeasurementScreenState extends State<MeasurementScreen> {
                   height: size.height * 0.13,
                   width: double.infinity,
                   child: Card(
-                    color: Colors.white.withOpacity(0.7),
+                    color: cardColor,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

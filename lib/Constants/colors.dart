@@ -12,3 +12,4 @@ const Color pinkShade = Color(0xffECB0AF);
 const Color mediumPink = Color(0xffA25A76);
 const Color brown = Color(0xff804130);
 const Color customWhite = Color(0xffFFFFFF);
+const Color cardColor = Color.fromARGB(255, 231, 230, 230);
