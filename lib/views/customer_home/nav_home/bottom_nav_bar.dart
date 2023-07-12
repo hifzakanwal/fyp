@@ -3,8 +3,8 @@
 import 'package:ect/Constants/colors.dart';
 import 'package:ect/views/customer_home/nav_home/customer_cart/customer_cart.dart';
 import 'package:ect/views/customer_home/nav_home/customer_profile/cutomer_profile.dart';
-import 'package:ect/views/customer_home/nav_home/favorites.dart';
-import 'package:ect/views/customer_home/nav_home/customer_home.dart';
+import 'package:ect/views/customer_home/nav_home/favorite_screen/favorites.dart';
+import 'package:ect/views/customer_home/nav_home/customer_home_screen/customer_home.dart';
 import 'package:flutter/material.dart';
 
 class CustomerBottomNavBar extends StatefulWidget {

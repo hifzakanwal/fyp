@@ -1,16 +1,27 @@
-import "package:ect/Constants/colors.dart";
-import "package:ect/views/customer_home/homepage_categories/fabric_collection/fabric_collection_screen.dart";
+import 'package:ect/Constants/colors.dart';
+import 'package:ect/views/customer_home/homepage_categories/fabric_collection/fabric_collection_screen.dart';
+import 'package:ect/views/customer_home/homepage_categories/fabric_collection/fabric_widget.dart';
 import 'package:ect/views/customer_home/homepage_categories/measurements/measurements.dart';
 import 'package:ect/views/customer_home/homepage_categories/tailors/tailors_screen.dart';
-import "package:flutter/material.dart";
-import "../homepage_categories/clothes/clothes_screen.dart";
+import 'package:ect/views/customer_home/homepage_categories/clothes/clothes_card.dart';
+import 'package:ect/views/customer_home/homepage_categories/clothes/clothes_screen.dart';
+import 'package:ect/views/customer_home/nav_home/customer_home_screen/tailor_list_card.dart';
+import 'package:ect/views/customer_home/nav_home/customer_profile/cutomer_profile.dart';
+import 'package:ect/views/customer_home/nav_home/search_screen/search_screen.dart';
+import 'package:flutter/material.dart';
 
 class CustomerHome extends StatelessWidget {
-  const CustomerHome({super.key});
+  const CustomerHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+    final List<Color> predefinedColors = [
+      red,
+      skyBlue,
+      darkPink,
+      customPurple,
+    ];
+    final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: CustomScrollView(
@@ -20,7 +31,14 @@ class CustomerHome extends StatelessWidget {
               expandedHeight: 180.0,
               backgroundColor: customWhite,
               leading: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CustomerProfile(),
+                    ),
+                  );
+                },
                 icon: const Icon(
                   Icons.person,
                   color: customPurple,
@@ -29,7 +47,14 @@ class CustomerHome extends StatelessWidget {
               ),
               actions: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchScreen(),
+                      ),
+                    );
+                  },
                   icon: const Icon(
                     Icons.search,
                     size: 40.0,
@@ -221,11 +246,12 @@ class CustomerHome extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
                                   child: Center(
-                                      child: Image.asset(
-                                    'assets/Graphics/fabric.png',
-                                    width: 45,
-                                    height: 45.60810852050781,
-                                  )),
+                                    child: Image.asset(
+                                      'assets/Graphics/fabric.png',
+                                      width: 45,
+                                      height: 45.60810852050781,
+                                    ),
+                                  ),
                                 ),
                               ),
                               const Padding(
@@ -285,7 +311,8 @@ class CustomerHome extends StatelessWidget {
                                             style: TextStyle(
                                               fontSize: 25,
                                               fontWeight: FontWeight.w800,
-                                              color: Colors.black.withOpacity(0.5),
+                                              color:
+                                                  Colors.black.withOpacity(0.5),
                                             ),
                                           ),
                                           const TextSpan(
@@ -449,7 +476,167 @@ class CustomerHome extends StatelessWidget {
                       ],
                     ),
                   ),
-                  
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10.0, left: 20.0, right: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Tailors Near to you",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TailorScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            "See All",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: customBlack,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 20.0,
+                    ),
+                    child: SizedBox(
+                      height: size.height * 0.155,
+                      width: size.width,
+                      child: ListView.builder(
+                        itemCount: 3,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          final color =
+                              predefinedColors[index % predefinedColors.length];
+                          return TailorListCard(
+                            cardColor: color,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10.0, left: 20.0, right: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Our Fabric Collection",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const FabricCollectionScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            "See All",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: customBlack,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10.0,
+                    ),
+                    child: SizedBox(
+                      height: size.height * 0.29,
+                      width: size.width,
+                      child: ListView.builder(
+                        itemCount: 3,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return const FabricItemWidget();
+                        },
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10.0, left: 20.0, right: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Explore Clothes",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const FabricCollectionScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            "See All",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: customBlack,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10.0,
+                        mainAxisSpacing: 10.0,
+                        childAspectRatio: 0.65,
+                      ),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 6,
+                      itemBuilder: (context, index) {
+                        return const ClothesCard();
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30.0,
+                  ),
                 ],
               ),
             ),

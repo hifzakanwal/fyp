@@ -1,4 +1,5 @@
 import 'package:ect/Constants/colors.dart';
+import 'package:ect/views/customer_home/homepage_categories/fabric_collection/fabric_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class FabricItemWidget extends StatelessWidget {
@@ -6,79 +7,89 @@ class FabricItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
-            child: Image.asset(
-              "assets/Graphics/fabrics1.png",
-              width: 161,
-              height: 161,
-              fit: BoxFit.cover,
-            ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const FabricDetailsScreen(),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 5.0 , top: 10.0),
-            child: Text(
-              "Chiffon Fabrics",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10.0, left: 10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: Image.asset(
+                "assets/Graphics/fabrics1.png",
+                width: 161,
+                height: 161,
+                fit: BoxFit.cover,
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 5.0 , top: 5.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Rs. 1500",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: customPurple,
-                  ),
+            const Padding(
+              padding: EdgeInsets.only(left: 5.0, top: 10.0),
+              child: Text(
+                "Chiffon Fabrics",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(right: 10.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: starColor,
-                        size: 15.0,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: starColor,
-                        size: 15.0,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: starColor,
-                        size: 15.0,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: starColor,
-                        size: 15.0,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: starColor,
-                        size: 15.0,
-                      ),
-                    ],
-                  ),
-                )
-              ],
+              ),
             ),
-          )
-        ],
+            const Padding(
+              padding: EdgeInsets.only(left: 5.0, top: 5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Rs. 1500",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: customPurple,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 10.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: starColor,
+                          size: 15.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: starColor,
+                          size: 15.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: starColor,
+                          size: 15.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: starColor,
+                          size: 15.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: starColor,
+                          size: 15.0,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

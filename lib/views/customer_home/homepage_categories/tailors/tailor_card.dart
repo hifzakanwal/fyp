@@ -155,7 +155,7 @@ class TailorCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

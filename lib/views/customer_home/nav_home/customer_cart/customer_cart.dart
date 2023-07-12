@@ -188,7 +188,7 @@ class _CustomerCartState extends State<CustomerCart> {
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 12, // Number of cards
+                      itemCount: 1, // Number of cards
                       itemBuilder: (
                         BuildContext context,
                         int index,
@@ -198,7 +198,7 @@ class _CustomerCartState extends State<CustomerCart> {
                     ),
                   ),
                   const SizedBox(
-                    height: 50.0,
+                    height: 10.0,
                   ),
                   ElevatedButton(
                     onPressed: () {},
@@ -214,7 +214,7 @@ class _CustomerCartState extends State<CustomerCart> {
                     ),
                   ),
                   const SizedBox(
-                    height: 50.0,
+                    height: 100.0,
                   ),
                 ],
               ),
