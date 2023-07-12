@@ -223,8 +223,8 @@ class CustomerHome extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
                                   child: Center(
-                                      child: SvgPicture.asset(
-                                    'assets/Graphics/fabrics.svg',
+                                      child: Image.asset(
+                                    'assets/Graphics/fabric.png',
                                     width: 45,
                                     height: 45.60810852050781,
                                   )),
@@ -439,6 +439,8 @@ class CustomerHome extends StatelessWidget {
                             ),
                             Image.asset(
                               "assets/Graphics/style_image2.png",
+                              width: 150,
+                              height: 279,
                             )
                           ],
                         ),

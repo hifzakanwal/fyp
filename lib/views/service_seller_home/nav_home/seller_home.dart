@@ -12,7 +12,7 @@ class SellerHome extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () async {
-            await Auth().logout();
+            await Auth().logout(context);
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => Login()));
           },
