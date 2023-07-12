@@ -3,8 +3,6 @@ import "package:ect/views/customer_home/homepage_categories/fabric_collection/fa
 import 'package:ect/views/customer_home/homepage_categories/measurements/measurements.dart';
 import 'package:ect/views/customer_home/homepage_categories/tailors/tailors_screen.dart';
 import "package:flutter/material.dart";
-import "package:flutter_svg/flutter_svg.dart";
-
 import "../homepage_categories/clothes/clothes_screen.dart";
 
 class CustomerHome extends StatelessWidget {
@@ -257,197 +255,202 @@ class CustomerHome extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0, left: 20.0),
-                      child: Container(
-                        height: size.height * 0.2,
-                        width: size.width * 0.85,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(240, 236, 176, 175),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0, left: 20.0),
+                          child: Container(
+                            height: size.height * 0.2,
+                            width: size.width * 0.85,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(240, 236, 176, 175),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                RichText(
-                                  textAlign: TextAlign.center,
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: 'Hire Your ',
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    RichText(
+                                      textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'Hire Your ',
+                                            style: TextStyle(
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.w800,
+                                              color: Colors.black.withOpacity(0.5),
+                                            ),
+                                          ),
+                                          const TextSpan(
+                                            text: '\nTailor',
+                                            style: TextStyle(
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.w800,
+                                              color: customPurple,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10.0),
+                                      child: Text(
+                                        "Find Tailor that Near to you",
                                         style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w800,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
                                           color: Colors.black.withOpacity(0.5),
                                         ),
                                       ),
-                                      const TextSpan(
-                                        text: '\nTailor',
-                                        style: TextStyle(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w800,
-                                          color: customPurple,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                  child: Text(
-                                    "Find Tailor that Near to you",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black.withOpacity(0.5),
                                     ),
-                                  ),
+                                  ],
                                 ),
+                                Image.asset(
+                                  "assets/Graphics/tailor_image.png",
+                                  width: 94,
+                                  height: 98,
+                                )
                               ],
                             ),
-                            Image.asset(
-                              "assets/Graphics/tailor_image.png",
-                              width: 94,
-                              height: 98,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 10.0,
-                        left: 20.0,
-                      ),
-                      child: Container(
-                        height: size.height * 0.2,
-                        width: size.width * 0.85,
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 107, 32, 106),
-                              Color.fromARGB(255, 199, 80, 128),
-                            ],
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            RichText(
-                              textAlign: TextAlign.center,
-                              text: const TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Automated ',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w800,
-                                      color: customWhite,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '\nBody',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w800,
-                                      color: skyBlue,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '\nMeasurements',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w800,
-                                      color: skyBlue,
-                                    ),
-                                  ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 10.0,
+                            left: 20.0,
+                          ),
+                          child: Container(
+                            height: size.height * 0.2,
+                            width: size.width * 0.85,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color.fromARGB(255, 107, 32, 106),
+                                  Color.fromARGB(255, 199, 80, 128),
                                 ],
                               ),
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
-                            Image.asset(
-                              "assets/Graphics/measuremnets_image.png",
-                              width: 66,
-                              height: 126,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 10.0, left: 20.0, right: 20.0),
-                      child: Container(
-                        height: size.height * 0.2,
-                        width: size.width * 0.85,
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 137, 177, 227),
-                              Color.fromARGB(255, 236, 176, 175),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 RichText(
-                                  textAlign: TextAlign.start,
+                                  textAlign: TextAlign.center,
                                   text: const TextSpan(
                                     children: [
                                       TextSpan(
-                                        text: 'UPGRADE ',
+                                        text: 'Automated ',
                                         style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w800,
-                                          color: customBlack,
+                                          color: customWhite,
                                         ),
                                       ),
                                       TextSpan(
-                                        text: '\nYOUR STYLE',
+                                        text: '\nBody',
                                         style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w800,
-                                          color: customBlack,
+                                          color: skyBlue,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '\nMeasurements',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w800,
+                                          color: skyBlue,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 10.0),
-                                  child: Text(
-                                    "Fabrics & Clothes Collection",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ),
+                                Image.asset(
+                                  "assets/Graphics/measuremnets_image.png",
+                                  width: 66,
+                                  height: 126,
+                                )
                               ],
                             ),
-                            Image.asset(
-                              "assets/Graphics/style_image2.png",
-                              width: 150,
-                              height: 279,
-                            )
-                          ],
+                          ),
                         ),
-                      ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 10.0, left: 20.0, right: 20.0),
+                          child: Container(
+                            height: size.height * 0.2,
+                            width: size.width * 0.85,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color.fromARGB(255, 137, 177, 227),
+                                  Color.fromARGB(255, 236, 176, 175),
+                                ],
+                              ),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    RichText(
+                                      textAlign: TextAlign.start,
+                                      text: const TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'UPGRADE ',
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w800,
+                                              color: customBlack,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: '\nYOUR STYLE',
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w800,
+                                              color: customBlack,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: Text(
+                                        "Fabrics & Clothes Collection",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Image.asset(
+                                  "assets/Graphics/style_image2.png",
+                                  width: 150,
+                                  height: 279,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  
+                ],
               ),
             ),
           ],

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:ect/Constants/colors.dart';
 import 'package:ect/views/customer_home/homepage_categories/tailors/tailor_card.dart';
 import 'package:flutter/material.dart';

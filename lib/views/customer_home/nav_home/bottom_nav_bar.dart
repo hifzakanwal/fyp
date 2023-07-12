@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:ect/Constants/colors.dart';
+import 'package:ect/views/customer_home/nav_home/customer_cart/customer_cart.dart';
 import 'package:ect/views/customer_home/nav_home/customer_profile/cutomer_profile.dart';
 import 'package:ect/views/customer_home/nav_home/favorites.dart';
 import 'package:ect/views/customer_home/nav_home/customer_home.dart';
@@ -21,7 +22,7 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
     const FavoriteScreen(),
     const CustomerHome(),
     const CustomerProfile(),
-    const Text('Cart'),
+    const CustomerCart(),
   ];
 
   void _onItemTapped(int index) {
