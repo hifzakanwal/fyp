@@ -3,7 +3,6 @@ import 'package:ect/models/user.dart';
 import 'package:ect/view_models/controllers/auth.dart';
 import 'package:ect/views/customer_home/nav_home/bottom_nav_bar.dart';
 import 'package:ect/views/service_seller_home/nav_home/seller_home_screen/seller_bottom_bar.dart';
-import 'package:ect/views/service_seller_home/nav_home/seller_home_screen/seller_home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -50,37 +49,39 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.active) {
-            if (snapshot.hasData) {
-              if (userModel != null) {
-                if (userModel?.userType == "customer") {
-                  debugPrint("Customer");
-                  return const CustomerBottomNavBar();
-                } else if (userModel?.userType == "seller") {
-                  debugPrint("Seller");
-                  return const SellerBottomNavBar();
-                } else if (userModel?.userType == null) {
-                  return const Welcome();
-                } else if (snapshot.hasError) {
-                  return Text(
-                    '${snapshot.hasError}',
-                  );
+      home: Scaffold(
+        backgroundColor: Colors.white, // Set the background color to white
+        body: Center(
+          child: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.active) {
+                if (snapshot.hasData) {
+                  if (userModel != null) {
+                    if (userModel?.userType == "customer") {
+                      debugPrint("Customer");
+                      return const CustomerBottomNavBar();
+                    } else if (userModel?.userType == "seller") {
+                      debugPrint("Seller");
+                      return const SellerBottomNavBar();
+                    } else if (userModel?.userType == null) {
+                      return const Welcome();
+                    } else if (snapshot.hasError) {
+                      return Text(
+                        '${snapshot.hasError}',
+                      );
+                    }
+                  }
                 }
-              }
-            }
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(
+              } else if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator(
                   backgroundColor: customPurple,
-                ),
-              );
-            }
-          }
-          return const Welcome();
-        },
+                );
+              }
+              return const Welcome();
+            },
+          ),
+        ),
       ),
     );
   }

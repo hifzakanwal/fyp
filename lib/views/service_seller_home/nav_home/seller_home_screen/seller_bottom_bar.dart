@@ -1,6 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api
-
+import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:ect/Constants/colors.dart';
+import 'package:ect/views/customer_home/nav_home/customer_cart/customer_cart.dart';
+import 'package:ect/views/customer_home/nav_home/customer_home_screen/customer_home.dart';
+import 'package:ect/views/customer_home/nav_home/customer_profile/cutomer_profile.dart';
+import 'package:ect/views/customer_home/nav_home/favorite_screen/favorites.dart';
 import 'package:ect/views/service_seller_home/nav_home/seller_home_screen/seller_home.dart';
 import 'package:ect/views/service_seller_home/nav_home/seller_profile/seller_profile.dart';
 import 'package:ect/views/service_seller_home/seller_order/seller_order.dart';
@@ -10,62 +14,131 @@ class SellerBottomNavBar extends StatefulWidget {
   const SellerBottomNavBar({super.key});
 
   @override
-  _SellerBottomNavBarState createState() => _SellerBottomNavBarState();
+  State<SellerBottomNavBar> createState() => _SellerBottomNavBarState();
 }
 
 class _SellerBottomNavBarState extends State<SellerBottomNavBar> {
-  int _selectedIndex = 2;
+  int selectedPos = 2;
+  double bottomNavBarHeight = 60;
 
-  static final List<Widget> _widgetOptions = <Widget>[
-    const Text('Chats'),
-    const Text('Earnings'),
-    const SellerHome(),
-    const SellerProfile(),
-    const SellerOrderScreen(),
-  ];
+  //tab items
+  List<TabItem> tabItems = List.of([
+    TabItem(
+      Icons.chat,
+      "Chat",
+      red,
+      circleStrokeColor: red,
+      labelStyle: const TextStyle(
+        color: red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    TabItem(
+      Icons.attach_money,
+      "Earnings",
+     red,
+      circleStrokeColor: red,
+      labelStyle: const TextStyle(
+        color: red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    TabItem(
+      Icons.add,
+      "Home",
+      red,
+      circleStrokeColor: red,
+      labelStyle: const TextStyle(
+        color: red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    TabItem(
+      Icons.account_circle,
+      "Profile",
+      red,
+      circleStrokeColor: red,
+      labelStyle: const TextStyle(
+        color: red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    TabItem(
+      Icons.assignment_turned_in,
+      "Orders",
+      red,
+      circleStrokeColor: red,
+      labelStyle: const TextStyle(
+        color: red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  ]);
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  late CircularBottomNavigationController _navigationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _navigationController = CircularBottomNavigationController(selectedPos);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: customPurple,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chat',
+      body: Stack(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(bottom: bottomNavBarHeight),
+            child: _buildScreen(selectedPos),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.attach_money),
-            label: 'Earnings',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment_turned_in),
-            label: 'Orders',
-          ),
+          Align(alignment: Alignment.bottomCenter, child: bottomNav())
         ],
-        selectedItemColor: red,
-        unselectedItemColor: customWhite,
       ),
     );
+  }
+
+  Widget _buildScreen(int selectedPos) {
+    switch (selectedPos) {
+      case 0:
+        return const Center(
+          child: Text("Chat Screen"),
+        );
+      case 1:
+        return const Center(
+          child: Text("Earnings Screen"),
+        );
+      case 2:
+        return const SellerHome();
+      case 3:
+        return const SellerProfile();
+      case 4:
+        return const SellerOrderScreen();
+      default:
+        return Container();
+    }
+  }
+
+  Widget bottomNav() {
+    return CircularBottomNavigation(
+      tabItems,
+      controller: _navigationController,
+      normalIconColor: customWhite,
+      selectedPos: selectedPos,
+      barHeight: bottomNavBarHeight,
+      barBackgroundColor: customPurple,
+      animationDuration: const Duration(milliseconds: 300),
+      selectedCallback: (int? selectedPos) {
+        setState(() {
+          this.selectedPos = selectedPos ?? 0;
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _navigationController.dispose();
   }
 }

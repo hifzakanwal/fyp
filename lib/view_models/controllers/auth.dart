@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ect/views/auth/login.dart';
 import 'package:ect/views/auth/welcome.dart';
 import 'package:ect/widgets/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,6 +22,35 @@ class Auth {
       }
     } catch (e) {
       return e.toString().toUpperCase();
+    }
+  }
+
+  Future<void> forgotPassword(String email, BuildContext context) async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: email)
+          .then((value) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Login(),
+          ),
+        ).onError((error, stackTrace) {
+          showSnackBar(
+            context,
+            error.toString(),
+          );
+        });
+      });
+      debugPrint('Password reset email sent');
+    } catch (e) {
+      debugPrint('Error sending password reset email: $e');
+      String errorMessage =
+          'An error occurred while sending the password reset email.';
+      if (e is FirebaseAuthException) {
+        errorMessage = e.message ?? errorMessage;
+      }
+      showSnackBar(context, errorMessage);
     }
   }
 
@@ -67,17 +97,17 @@ class Auth {
           userType: userType,
           createdOn: Timestamp.now(),
         );
-        print("USER CREATED");
+        debugPrint("USER CREATED");
         await _firestore.collection('Users').doc(uid).set(
               userModel.toJson(),
             );
-        print("USER ADDED TO FIRESTORE");
+        debugPrint("USER ADDED TO FIRESTORE");
         return userModel;
       } else {
         throw Exception('Registration failed. Please try again.');
       }
     } catch (e) {
-      print(e.toString().toUpperCase());
+      debugPrint(e.toString().toUpperCase());
       throw Exception('Registration failed: $e');
     }
   }
