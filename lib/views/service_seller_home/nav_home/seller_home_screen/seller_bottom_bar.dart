@@ -1,28 +1,27 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:ect/Constants/colors.dart';
-import 'package:ect/views/customer_home/nav_home/customer_cart/customer_cart.dart';
-import 'package:ect/views/customer_home/nav_home/customer_profile/cutomer_profile.dart';
-import 'package:ect/views/customer_home/nav_home/favorite_screen/favorites.dart';
-import 'package:ect/views/customer_home/nav_home/customer_home_screen/customer_home.dart';
+import 'package:ect/views/service_seller_home/nav_home/seller_home_screen/seller_home.dart';
+import 'package:ect/views/service_seller_home/nav_home/seller_profile/seller_profile.dart';
+import 'package:ect/views/service_seller_home/seller_order/seller_order.dart';
 import 'package:flutter/material.dart';
 
-class CustomerBottomNavBar extends StatefulWidget {
-  const CustomerBottomNavBar({super.key});
+class SellerBottomNavBar extends StatefulWidget {
+  const SellerBottomNavBar({super.key});
 
   @override
-  _CustomerBottomNavBarState createState() => _CustomerBottomNavBarState();
+  _SellerBottomNavBarState createState() => _SellerBottomNavBarState();
 }
 
-class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
+class _SellerBottomNavBarState extends State<SellerBottomNavBar> {
   int _selectedIndex = 2;
 
   static final List<Widget> _widgetOptions = <Widget>[
     const Text('Chats'),
-    const FavoriteScreen(),
-    const CustomerHome(),
-    const CustomerProfile(),
-    const CustomerCart(),
+    const Text('Earnings'),
+    const SellerHome(),
+    const SellerProfile(),
+    const SellerOrderScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -48,11 +47,11 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
             label: 'Chat',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorite',
+            icon: Icon(Icons.attach_money),
+            label: 'Earnings',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.add),
             label: 'Home',
           ),
           BottomNavigationBarItem(
@@ -60,8 +59,8 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
             label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Add to Cart',
+            icon: Icon(Icons.assignment_turned_in),
+            label: 'Orders',
           ),
         ],
         selectedItemColor: red,

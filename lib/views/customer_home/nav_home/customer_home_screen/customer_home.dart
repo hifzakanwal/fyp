@@ -40,7 +40,7 @@ class CustomerHome extends StatelessWidget {
                   );
                 },
                 icon: const Icon(
-                  Icons.person,
+                  Icons.account_circle,
                   color: customPurple,
                   size: 40.0,
                 ),

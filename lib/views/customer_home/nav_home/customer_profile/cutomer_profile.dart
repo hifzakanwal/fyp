@@ -73,7 +73,7 @@ class _CustomerProfileState extends State<CustomerProfile> {
                         const Padding(
                           padding: EdgeInsets.only(left: 5.0, right: 10.0),
                           child: Icon(
-                            Icons.person,
+                            Icons.account_circle,
                             color: darkPink,
                             size: 30,
                           ),
